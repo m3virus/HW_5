@@ -9,7 +9,7 @@ namespace ConsoleApp1
 {
     public interface IProdcutRepository
     {
-        string AddProduct(Product product);
+        void AddProduct(Product product);
         List<Product> GetProductList();
         string GetProductByID(int ID);
 
