@@ -8,7 +8,7 @@ namespace ConsoleApp1.domain
 {
     public class Product
     {
-        public Guid ProductID { get; set; }
+        public int ProductID { get; set; }
         public string Name { get; set; }
         public string Barcode { get; set; }
 
