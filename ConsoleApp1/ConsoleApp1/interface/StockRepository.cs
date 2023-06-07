@@ -72,6 +72,7 @@ namespace ConsoleApp1
 
                 
                 formatter.Serialize(stream, stockList);
+                stream.Close();
 
                 return stockList;
                 
