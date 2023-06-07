@@ -13,6 +13,8 @@ namespace ConsoleApp1
 {
     class ProductRepository : IProdcutRepository
     {
+        static long productID = 0;
+        
         public static bool CheckProductName(string name) 
         {
             if(Regex.IsMatch(name, @"[A-Z][a-z]{3}\_\d{3}"))
@@ -27,11 +29,11 @@ namespace ConsoleApp1
         }
         public void AddProduct(Product product)
         {
-            
 
+            
             try
             {
-
+                productID++;
                 string fileName = "ProductJson.json";
                 var jsonData = File.ReadAllText(fileName);
                 List<Product> productList = JsonConvert.DeserializeObject<List<Product>>(jsonData);
@@ -50,42 +52,63 @@ namespace ConsoleApp1
 
         }
 
+
         public string GetProductByID(int ID)
         {
+            
             try
             {
-                
+                int check = 0;
+                string name = "";
                 string fileName = "ProductJson.json";
                 var jsonData = File.ReadAllText(fileName);
                 List<Product> productList = JsonConvert.DeserializeObject<List<Product>>(jsonData);
-                foreach( var i in productList)
+                foreach(var i in productList)
                 {
                     if (i.ProductID == ID)
                     {
-                        return i.Name;
+                        name = i.Name;
+                        check ++;
+                        break;
                     }
-                    else
-                    {
-                        return "your ID is invalid";
-                    }
+                    
+                    
                 }
-
-
+                if (check == 0)
+                {
+                    return "name is unvalid";
+                }
+                else
+                {
+                    return name;
+                }
+                
             }
             catch (Exception FileEx)
             {
-                return FileEx.Message;
+                Console.WriteLine(FileEx.Message);
+                return null;
 
             }
-
         }
 
         public List<Product> GetProductList()
         {
-            string fileName = "ProductJson.json";
-            var jsonData = File.ReadAllText(fileName);
-            List<Product> productList = JsonConvert.DeserializeObject<List<Product>>(jsonData);
-            return productList;
+            try
+            {
+                string fileName = "ProductJson.json";
+                var jsonData = File.ReadAllText(fileName);
+                List<Product> productList = JsonConvert.DeserializeObject<List<Product>>(jsonData);
+                return productList;
+            }
+            catch (Exception fileEx)
+            {
+
+                Console.WriteLine(fileEx.Message);
+                return null;
+            }
+            
+            
         }
         
     }
