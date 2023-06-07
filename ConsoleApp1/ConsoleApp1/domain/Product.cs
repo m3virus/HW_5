@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.domain
 {
-    class Product
+    public class Product
     {
+
     }
 }
