@@ -52,12 +52,40 @@ namespace ConsoleApp1
 
         public string GetProductByID(int ID)
         {
-            throw new NotImplementedException();
+            try
+            {
+                
+                string fileName = "ProductJson.json";
+                var jsonData = File.ReadAllText(fileName);
+                List<Product> productList = JsonConvert.DeserializeObject<List<Product>>(jsonData);
+                foreach( var i in productList)
+                {
+                    if (i.ProductID == ID)
+                    {
+                        return i.Name;
+                    }
+                    else
+                    {
+                        return "your ID is invalid";
+                    }
+                }
+
+
+            }
+            catch (Exception FileEx)
+            {
+                return FileEx.Message;
+
+            }
+
         }
 
         public List<Product> GetProductList()
         {
-            throw new NotImplementedException();
+            string fileName = "ProductJson.json";
+            var jsonData = File.ReadAllText(fileName);
+            List<Product> productList = JsonConvert.DeserializeObject<List<Product>>(jsonData);
+            return productList;
         }
         
     }

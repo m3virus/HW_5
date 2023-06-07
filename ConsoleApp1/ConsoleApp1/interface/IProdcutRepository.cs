@@ -7,11 +7,11 @@ using ConsoleApp1.domain;
 
 namespace ConsoleApp1
 {
-    public interface IProdcutRepository
+    interface IProdcutRepository
     {
         void AddProduct(Product product);
         List<Product> GetProductList();
-        string GetProductByID(int ID);
+        public string GetProductByID(int ID);
 
     }
 }
