@@ -11,7 +11,7 @@ namespace ConsoleApp1.domain
     {
         public int ProductID { get; set; }
         public string Name { get; set; }
-        public string Barcode { get; set; }
+        public Guid Barcode { get; set; }
 
     }
 }

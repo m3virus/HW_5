@@ -13,8 +13,8 @@ namespace ConsoleApp1
 {
     class ProductRepository : IProdcutRepository
     {
-        static long productID = 0;
         
+
         public static bool CheckProductName(string name) 
         {
             if(Regex.IsMatch(name, @"[A-Z][a-z]{3}\_\d{3}"))
@@ -33,7 +33,7 @@ namespace ConsoleApp1
             
             try
             {
-                productID++;
+                
                 string fileName = "ProductJson.json";
                 var jsonData = File.ReadAllText(fileName);
                 List<Product> productList = JsonConvert.DeserializeObject<List<Product>>(jsonData);
