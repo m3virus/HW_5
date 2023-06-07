@@ -76,9 +76,10 @@
   <ItemGroup>
     <Compile Include="domain\Product.cs" />
     <Compile Include="domain\Stock.cs" />
-    <Compile Include="interface\IProdcutRepository.cs" />
-    <Compile Include="interface\IStockRepository.cs" />
-    <Compile Include="interface\ProductRepository.cs" />
+    <Compile Include="repository\IProdcutRepository.cs" />
+    <Compile Include="repository\IStockRepository.cs" />
+    <Compile Include="repository\ProductRepository.cs" />
+    <Compile Include="repository\StockRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

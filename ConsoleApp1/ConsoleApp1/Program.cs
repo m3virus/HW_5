@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ConsoleApp1.domain;
 using Newtonsoft.Json;
+using ConsoleApp1.repository;
 
 namespace ConsoleApp1
 {
@@ -52,21 +53,65 @@ namespace ConsoleApp1
             return number;
 
         }
+        public static void ProductManagement(int entry)
+        {
+            ProductRepository a = new ProductRepository();
+            do
+            {
+                if (entry == 1)
+                {
+
+                    Product product = new Product();
+                    Console.WriteLine("enter your product name");
+                    product.Name = Console.ReadLine();
+                    product.Barcode = new Guid();
+                    product.ProductID = productID();
+                    a.AddProduct(product);
+
+                }
+                else if (entry == 2)
+                {
+                    Console.WriteLine("enter the Id of the product");
+                    int number = int.Parse(Console.ReadLine());
+                    a.GetProductByID(number);
+                }
+                else if (entry == 3)
+                {
+                    a.GetProductList();
+                }
+                else
+                {
+                    break;
+                }
+            } while (entry != 4);
+        }
         static void Main(string[] args)
         {
-            Menu();
-            int menuNumber = int.Parse(Console.ReadLine());
-            switch (menuNumber)
+            int menuNumber;
+            int productMenuNumber;
+            int stickMenuNumber;
+            do
             {
-                case 1:
+                Menu();
+                menuNumber = int.Parse(Console.ReadLine());
+
+                if(menuNumber == 1)
+                {
+                    ProductMenu();
+                    productMenuNumber = int.Parse(Console.ReadLine());
+                    ProductManagement(productMenuNumber);
+                }
+                else if (menuNumber == 2)
+                {
+
+                }
+                else
+                {
                     break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                default:
-                    break;
-            }
+                }
+
+            } while (menuNumber != 3);
+            
         }
         
     }

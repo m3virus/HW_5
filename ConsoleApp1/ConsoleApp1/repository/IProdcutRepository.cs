@@ -5,13 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using ConsoleApp1.domain;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.repository
+
 {
     interface IProdcutRepository
     {
+        
         void AddProduct(Product product);
         List<Product> GetProductList();
-        public string GetProductByID(int ID);
+        string GetProductByID(int ID);
 
     }
 }

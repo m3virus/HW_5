@@ -9,7 +9,7 @@ using ConsoleApp1.domain;
 using Newtonsoft.Json;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.repository
 {
     class StockRepository : IStockRepository
     {

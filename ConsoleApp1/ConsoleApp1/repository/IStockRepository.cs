@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.IO;
 
 
-namespace ConsoleApp1
+namespace ConsoleApp1.repository
 {
     interface IStockRepository
     {

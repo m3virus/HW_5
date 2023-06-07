@@ -9,7 +9,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
-namespace ConsoleApp1
+namespace ConsoleApp1.repository
 {
     class ProductRepository : IProdcutRepository
     {
